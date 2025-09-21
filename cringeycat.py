@@ -163,10 +163,10 @@ def get_follows():
 def render(follows):
     context = {'follows': follows}
     site = Site.make_site(
-        contexts=[('index.html',context)],
-        outpath="output",
+        env_globals=context,
+        outpath="build",
     )
-    # enable automatic reloading
+    
     site.render(
         use_reloader=False
     )

@@ -1,0 +1,10 @@
+Things todo:
+  - date stuff:
+    - date/last update isn't being calculated correctly. It's sort of "good enough" for now
+    - Possibly improve colors of the "latest/time", not sure if they're all correct
+    - what is better to use, update time or pub time?
+
+  - getting the feed image from the feed url isn't quite working
+  - limit max width
+  - Fade text in truncated line mod
+  - certain feeds are coming up as having no entities, but I think they should be there

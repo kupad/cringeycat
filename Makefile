@@ -18,9 +18,18 @@ init: ## initalize repos
 install: ## install libs
 	$(ACTIVATE) && pip install -r requirements.txt
 
+
+.PHONY:
+setup-web:
+	mkdir -p build
+	cp -R staticfiles/* build
+
 .PHONY: run
 run: ## run cringeycat
 	$(ACTIVATE) && python cringeycat.py
+
+.PHONY:
+build: setup-web run
 
 
 	
