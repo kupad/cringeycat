@@ -12,7 +12,7 @@ help: ## help
 init: ## initalize repos
 	python3.10 -m venv .venv --prompt cringeycat	
 	mkdir -p db/feeds
-	mkdir -p output
+	mkdir -p build
 
 .PHONY: install
 install: ## install libs
