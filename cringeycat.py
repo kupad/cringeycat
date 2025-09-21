@@ -79,7 +79,7 @@ def is_null_or_empty(l):
     return l is None or len(l) == 0
 
 def get_last_updated(d):
-    last_updated = d.feed.get('updated_parsed', d.feed.get('published_parsed', None))
+    last_updated = None
 
     if last_updated is None and not is_null_or_empty(d.entries):
         first = d.entries[0]
