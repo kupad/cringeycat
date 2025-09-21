@@ -1,0 +1,4 @@
+feedparser==6.0.12
+staticjinja==5.0.0
+click==8.3.0
+fake-useragent==2.2.0
