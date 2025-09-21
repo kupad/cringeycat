@@ -31,5 +31,12 @@ run: ## run cringeycat
 .PHONY:
 build: setup-web run
 
+.PHONY:
+deploy:
+	cp -r build/* $(target)
+
+
+
+
 
 	
