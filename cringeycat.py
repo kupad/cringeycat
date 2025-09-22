@@ -91,12 +91,14 @@ def get_last_updated(d):
     return datetime.fromtimestamp(0)
 
 
-def get_follow(url):
+def get_follow(follow_meta):
     """
     Get the 'follow' dictionary which will be passed to the jinja templates for rendering.
 
     Feeds are locally cached.
     """
+    url = follow_meta['url']
+
     print("processing: ", url);
     now = datetime.utcnow()
     
@@ -110,7 +112,7 @@ def get_follow(url):
     d = feedparser.parse(path)
 
     title = d.feed.get('title')
-    follow['title'] = title if (title is not None and title != "") else urlparse(url).netloc
+    follow['title'] = follow_meta['name'] if 'name' in follow_meta and not is_null_or_empty(follow_meta['name']) else title if not is_null_or_empty(title) else urlparse(url).netloc
     follow['link'] = d.feed.get('link', url)
     follow['image_href'] = d.feed.image.href if 'image' in d.feed else '';
 
@@ -148,9 +150,9 @@ def get_follows():
 
     urls = [x['url'] for x in follows_meta]
     follows = []
-    for url in urls:
+    for meta in follows_meta:
         try:
-            follows.append(get_follow(url))
+            follows.append(get_follow(meta))
         except Exception as e:
             print("An exception occurred:", e)
             print(traceback.format_exc())
