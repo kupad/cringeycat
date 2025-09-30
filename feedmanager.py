@@ -108,7 +108,7 @@ def get_follow(follow_meta):
     title = d.feed.get('title')
     follow['title'] = follow_meta['name'] if 'name' in follow_meta and not is_null_or_empty(follow_meta['name']) else title if not is_null_or_empty(title) else urlparse(url).netloc
     follow['link'] = d.feed.get('link', url)
-    follow['image_href'] = d.feed.image.href if 'image' in d.feed else '';
+    follow['image_href'] = d.feed.image.href if 'image' in d.feed else '../img/rss.png';
 
     feed_last_updated = get_last_updated(d)
     latest_ago_val, latest_ago_interval = calc_ago(now, feed_last_updated)
